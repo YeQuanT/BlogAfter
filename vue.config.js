@@ -1,7 +1,7 @@
 'use strict'
 const path = require('path')
 const defaultSettings = require('./src/settings.js')
-
+const webpack = require('webpack')
 function resolve(dir) {
   return path.join(__dirname, dir)
 }
@@ -36,7 +36,7 @@ module.exports = {
       warnings: false,
       errors: true
     },
-    before: require('./mock/mock-server.js')
+    // before: require('./mock/mock-server.js')
   },
   configureWebpack: {
     // provide the app's title in webpack's name field, so that
@@ -44,9 +44,10 @@ module.exports = {
     name: name,
     resolve: {
       alias: {
-        '@': resolve('src')
+        '@': resolve('src'),
+        
       }
-    }
+    },
   },
   chainWebpack(config) {
     // it can improve the speed of the first screen, it is recommended to turn on preload

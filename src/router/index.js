@@ -89,6 +89,22 @@ export const constantRoutes = [
       }
     ]
   },
+  {
+    path: '/blog',
+    component: Layout,
+    meta: { title:"博客管理" ,icon:"list"},
+    children: [
+      {
+        path: 'index',
+        name: 'Blog',
+        component: () => import('@/views/Blog/blog'),
+        meta: { title: '博客管理', icon: 'form' }
+      },
+      { path: 'add',name:'AddArticle', component: ()=>import('@/views/Blog/tinymce'),meta: { title:"增加文章",icon:'add' } },
+      { path: 'acticlelist',name:'ArticleList', component: ()=>import('@/views/Blog/AarticleList'),meta: { title:"文章列表",icon:'list' } },
+      { path: 'skill',name:'Skill', component: ()=>import('@/views/Blog/Skill'),meta: { title:"技能加点",icon:'skill' } },
+    ]
+  },
 
   {
     path: '/nested',
